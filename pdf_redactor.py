@@ -152,8 +152,9 @@ def update_metadata(trailer, options):
 				value = value.decode()
 
 			# Filter the value.
-			value = f(value)
-
+			#value = f(value)
+			if value is not None:
+				value = f(value)
 			# Convert Python data type to PdfString.
 			if isinstance(value, str) or (sys.version_info < (3,) and isinstance(value, unicode)):
 				# Convert string to a PdfString instance.
